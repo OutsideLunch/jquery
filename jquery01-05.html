@@ -32,9 +32,17 @@
         // 사용법
         // $(선택자).jquery함수1(),jquery함수2(),jquery함수3()....;
         // 메서드 체이닝
+        // jquery는 구문이 엄격하지 않기 때문에 아래와 같이 사용해도 상관X
         $("#btn").on("click", function() {
             $("#p1").css("color", "red").slideUp(2000).slideDown(2000).fadeOut(2000).fadeIn(2000);
         });
+
+
+        // jquery 콜백 함수 : 현재 효과가 완료된 후 실행되는 함수
+
+        // 사용법
+        // $(선택자).hide(속도,콜백함수)
+
 
         });
     </script>

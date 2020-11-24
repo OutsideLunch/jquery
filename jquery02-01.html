@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery 2-1</title>
+    <script src="jquery-3.5.1.js"></script>
+    <script src="jquery.color-2.1.2.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btnCall1").on("click", function() {
+                $("#pCall1").hide("slow", function() {
+                    console.log("p 태그 숨겨짐, 콜백함수 사용")
+                });
+            });
+        
+            $("#btnCall2").on("click", function() {
+                $("#pCall2").hide("slow");
+                console.log("p 태그 숨겨짐, 콜백함수 미사용");
+            });
+            
+            $("#btnCall3").on("click", function() {
+                console.log("버튼3 : 1");
+                console.log("버튼3 : 2");
+                console.log("버튼3 : 3");
+                console.log("---------")
+            });
+
+            $("#btnCall4").on("click", function() {
+                console.log("버튼4 : 1");
+                setTimeout(function() {
+                console.log("버튼4 : 2");
+                }, 2000);
+                console.log("버튼4 : 3");
+            });
+        // 동기 처리 방식 - 요청을 보낸 후 해당 응답을 받아야 다음 동작을 실행
+        // 비동기 처리 방식 - 요청을 보낸 후 응답에 관계없이 다음 동작을 실행
+        // 비동기 방식 사용 이유 - 자바스크립트는 웹에서 사용되고 있고 서버에 요청을 보낸 후 서버에서 응답이 없을 경우에도 나머지 부분을 처리 해야하기 때문에 비동기 방식을 사용, 해당 응답이 온 후 필요한 작업을 진행
+
+        // jquery의 html 콘텐츠 조작 - jquery를 사용하면 html dom을 쉽게 조작할 수 있음
+        // text() - 선택한 요소의 텍스트 내용을 설정하거나 반환
+        // html() - 선택한 요소의 내용을 설정하거나 변환(html 코드 전환)
+        // val() - 양식 필드의 값을 설정하거나 반환
+        });
+    </script>
+</head>
+<body>
+    <h3>콜백 함수 사용</h3>
+    <button id="btnCall1">Hide</button>
+    <p id="pCall1">버튼 클릭 시 숨겨질 p태그</p>
+
+    <br><hr><br>
+
+    <h3>콜백 함수 미사용</h3>
+    <button id="btnCall2">Hide</button>
+    <p id="pCall2">버튼 클릭 시 숨겨질 p태그</p>
+
+    <br><hr><br>
+
+    <button id="btnCall3">클릭 시 콘솔창에 출력</button>
+    <button id="btnCall4">클릭 시 콘솔창에 출력</button>
+
+</body>
+</html>
